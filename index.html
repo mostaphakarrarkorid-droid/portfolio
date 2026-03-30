@@ -1,0 +1,1175 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio — Mostapha Karrar Korid | BTS SIO SISR</title>
+    <meta name="description" content="Portfolio de Mostapha Karrar Korid — BTS SIO option SISR au lycée Robert Schuman : parcours, projets, veilles, contact et épreuve E4.">
+
+    <style>
+      :root {
+        --bg: #0a0a0f;
+        --text: #e0e0e0;
+        --muted: #888888;
+        --border: #ff0033;
+        --accent: #ff0033;
+        --accent-weak: #ff3366;
+        --accent-cyan: #00ffff;
+        --accent-magenta: #ff00ff;
+        --surface: #151520;
+        --surface-dark: #0f0f15;
+        --shadow: 0 2px 8px rgba(255, 0, 51, 0.2);
+        --shadow-glow: 0 0 20px rgba(255, 0, 51, 0.5);
+        --radius: 12px;
+        --topbar-height: 92px;
+      }
+
+      @keyframes glow {
+        0%, 100% { box-shadow: 0 0 10px rgba(255, 0, 51, 0.5), 0 0 20px rgba(255, 0, 51, 0.3); }
+        50% { box-shadow: 0 0 20px rgba(255, 0, 51, 0.8), 0 0 30px rgba(255, 0, 51, 0.5); }
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+      }
+
+      @keyframes scan {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+      }
+
+      html { 
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Courier New', 'Consolas', 'Monaco', monospace, ui-sans-serif, system-ui;
+        color: var(--text);
+        background: var(--bg);
+        background-image: 
+          radial-gradient(circle at 20% 50%, rgba(255, 0, 51, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
+        line-height: 1.6;
+        position: relative;
+        overflow-x: hidden;
+        width: 100%;
+      }
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 0, 51, 0.03) 2px,
+            rgba(255, 0, 51, 0.03) 4px
+          );
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; height: auto; }
+
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      .skip-link:focus {
+        left: 16px;
+        top: 16px;
+        width: auto;
+        height: auto;
+        padding: 8px 12px;
+        background: var(--accent);
+        color: #fff;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      /* Barre de navigation en haut */
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: var(--topbar-height);
+        border-bottom: 2px solid var(--accent);
+        background: rgba(10, 10, 15, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 20px rgba(255, 0, 51, 0.3), 0 2px 10px rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        padding: 0 18px;
+        z-index: 10;
+      }
+
+      .topbar {
+        width: 100%;
+        max-width: 1200px;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px 0;
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .brand .name {
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: var(--accent);
+        text-shadow: 0 0 10px rgba(255, 0, 51, 0.8), 0 0 20px rgba(255, 0, 51, 0.4);
+        animation: pulse 3s ease-in-out infinite;
+      }
+      .brand .role {
+        color: var(--accent-cyan);
+        font-size: 0.95rem;
+        text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 8px 0 0 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      nav a {
+        display: block;
+        padding: 10px 12px;
+        border-radius: 10px;
+        color: var(--muted);
+        border: 1px solid transparent;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      nav a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      nav a:hover {
+        color: var(--accent);
+        text-shadow: 0 0 8px rgba(255, 0, 51, 0.8);
+        border-color: var(--accent);
+        box-shadow: 0 0 15px rgba(255, 0, 51, 0.4);
+      }
+      nav a.active {
+        color: var(--accent);
+        background: rgba(255, 0, 51, 0.1);
+        border-color: var(--accent);
+        box-shadow: 0 0 15px rgba(255, 0, 51, 0.6);
+        text-shadow: 0 0 10px rgba(255, 0, 51, 1);
+      }
+
+      .sidebar .footer {
+        margin-top: auto;
+        font-size: 0.9rem;
+        color: var(--accent-cyan);
+        text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+      }
+
+      /* Contenu principal */
+      .container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        z-index: 2;
+      }
+
+      main {
+        margin-top: var(--topbar-height);
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: calc(100vh - var(--topbar-height));
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+      }
+
+      section {
+        min-height: calc(100vh - var(--topbar-height));
+        width: 100%;
+        background: var(--surface);
+        border: none;
+        border-top: 2px solid var(--accent);
+        border-bottom: 2px solid var(--accent);
+        box-shadow: 
+          0 0 20px rgba(255, 0, 51, 0.3),
+          inset 0 0 30px rgba(255, 0, 51, 0.05);
+        position: relative;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        padding: 60px 80px;
+        box-sizing: border-box;
+      }
+      section > div {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      section header {
+        max-width: 1400px;
+        margin: 0 auto 40px;
+        width: 100%;
+        text-align: center;
+      }
+      @media (max-width: 768px) {
+        section {
+          padding: 40px 30px;
+          min-height: calc(100vh - var(--topbar-height));
+        }
+        section header h2 {
+          font-size: 1.8rem;
+        }
+      }
+      section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 0, 51, 0.1),
+          transparent
+        );
+        animation: scan 3s linear infinite;
+      }
+      section header {
+        max-width: 1400px;
+        margin: 0 auto 40px;
+      }
+      section header h2 {
+        margin: 0 0 6px 0;
+        font-size: 2.5rem;
+        color: var(--accent);
+        text-shadow: 0 0 10px rgba(255, 0, 51, 0.8);
+        letter-spacing: 2px;
+      }
+      section header p {
+        margin: 0 0 12px 0;
+        color: var(--muted);
+        font-size: 1.1rem;
+      }
+      section > div {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .hero {
+        display: grid;
+        gap: 14px;
+      }
+      .hero h1 { margin: 0; font-size: 2rem; }
+      .hero .tagline { color: var(--muted); }
+
+      /* Grille simple pour le contenu */
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+      .grid.cols-2.certifications figure img {
+        width: 100%;
+        height: 140px;
+        object-fit: contain;
+      }
+
+      /* Parcours : liste structurée */
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .timeline-item h4 {
+        margin: 0 0 2px 0;
+      }
+      .timeline-item .meta {
+        font-size: 0.92rem;
+        color: var(--muted);
+        margin-bottom: 4px;
+      }
+      .timeline-item ul {
+        margin: 4px 0 0 18px;
+        padding: 0;
+      }
+
+      .timeline-block {
+        margin-bottom: 24px;
+      }
+      @media (min-width: 800px) {
+        .grid.cols-2 { grid-template-columns: 1fr 1fr; }
+      }
+
+      /* Cartes de projets et parcours */
+      .project-card,
+      .parcours-card {
+        background: var(--surface-dark);
+        border: 1px solid var(--accent);
+        border-radius: var(--radius);
+        padding: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .project-card::before,
+      .parcours-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .project-card:hover,
+      .parcours-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--accent-cyan);
+        box-shadow: 
+          0 0 25px rgba(255, 0, 51, 0.6),
+          0 0 40px rgba(0, 255, 255, 0.3),
+          0 8px 20px rgba(0, 0, 0, 0.5);
+      }
+      .project-card:hover::before,
+      .parcours-card:hover::before {
+        opacity: 1;
+        animation: scan 2s linear infinite;
+      }
+      .project-card h3,
+      .parcours-card h3 {
+        margin: 0 0 12px 0;
+        font-size: 1.3rem;
+        color: var(--accent);
+        text-shadow: 0 0 8px rgba(255, 0, 51, 0.6);
+        letter-spacing: 0.5px;
+      }
+      .project-card h4,
+      .parcours-card h4 {
+        margin: 0 0 8px 0;
+        font-size: 1.1rem;
+        color: var(--accent-cyan);
+        text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+      }
+      .project-card p,
+      .parcours-card p {
+        margin: 0 0 16px 0;
+        color: var(--text);
+        line-height: 1.6;
+      }
+      .parcours-card .meta {
+        color: var(--accent-cyan);
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+        font-style: italic;
+        text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
+      }
+      .parcours-card ul {
+        margin: 0;
+        padding-left: 20px;
+        color: var(--text);
+      }
+      .parcours-card li {
+        margin-bottom: 6px;
+      }
+      .parcours-card li::marker {
+        color: var(--accent);
+      }
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .project-tag {
+        display: inline-block;
+        padding: 4px 10px;
+        background: rgba(255, 0, 51, 0.15);
+        color: var(--accent);
+        border: 1px solid var(--accent);
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-shadow: 0 0 5px rgba(255, 0, 51, 0.5);
+        box-shadow: 0 0 10px rgba(255, 0, 51, 0.3);
+        transition: all 0.3s ease;
+      }
+      .project-tag:hover {
+        background: rgba(255, 0, 51, 0.3);
+        box-shadow: 0 0 15px rgba(255, 0, 51, 0.6);
+        transform: scale(1.05);
+      }
+      .parcours-section-title {
+        font-size: 1.4rem;
+        margin: 32px 0 20px 0;
+        color: var(--accent-cyan);
+        font-weight: 600;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+        letter-spacing: 1px;
+      }
+      .parcours-section-title:first-child {
+        margin-top: 0;
+      }
+
+      /* Boutons et inputs dystopiques */
+      button,
+      input[type="submit"],
+      a[style*="background:var(--accent)"] {
+        background: var(--accent) !important;
+        color: #000 !important;
+        border: 2px solid var(--accent) !important;
+        box-shadow: 
+          0 0 15px rgba(255, 0, 51, 0.6),
+          inset 0 0 10px rgba(255, 255, 255, 0.1) !important;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.5) !important;
+        transition: all 0.3s ease !important;
+        font-weight: 600 !important;
+        letter-spacing: 1px !important;
+      }
+      button:hover,
+      input[type="submit"]:hover,
+      a[style*="background:var(--accent)"]:hover {
+        background: var(--accent-weak) !important;
+        box-shadow: 
+          0 0 25px rgba(255, 0, 51, 0.9),
+          0 0 40px rgba(255, 0, 51, 0.5),
+          inset 0 0 15px rgba(255, 255, 255, 0.2) !important;
+        transform: translateY(-2px) !important;
+      }
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        background: var(--surface-dark) !important;
+        border: 1px solid var(--accent) !important;
+        color: var(--text) !important;
+        box-shadow: 
+          0 0 10px rgba(255, 0, 51, 0.2),
+          inset 0 0 10px rgba(0, 0, 0, 0.3) !important;
+      }
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      textarea:focus {
+        outline: none !important;
+        border-color: var(--accent-cyan) !important;
+        box-shadow: 
+          0 0 20px rgba(255, 0, 51, 0.4),
+          0 0 30px rgba(0, 255, 255, 0.3),
+          inset 0 0 15px rgba(0, 0, 0, 0.4) !important;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: var(--muted) !important;
+      }
+
+      /* Hero section */
+      .hero h1 {
+        text-shadow: 0 0 20px rgba(255, 0, 51, 1), 0 0 40px rgba(255, 0, 51, 0.6) !important;
+        animation: pulse 3s ease-in-out infinite !important;
+      }
+      .hero .tagline {
+        color: var(--accent-cyan) !important;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.6) !important;
+      }
+
+      /* Liens */
+      a {
+        transition: all 0.3s ease;
+      }
+      a:hover {
+        text-shadow: 0 0 8px rgba(255, 0, 51, 0.8);
+      }
+
+      /* Responsive: la barre passe en haut sur petits écrans */
+      @media (max-width: 960px) {
+        .sidebar {
+          position: static;
+          height: auto;
+          border-bottom: 2px solid var(--accent);
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+        main { margin-top: 16px; }
+        nav ul { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#accueil" class="skip-link">Aller au contenu principal</a>
+
+      <aside class="sidebar" aria-label="Barre de navigation principale">
+        <div class="topbar">
+          <div class="brand" aria-label="Identité">
+            <div class="name">Mostapha Karrar Korid</div>
+            <div class="role">BTS SIO — Option SISR</div>
+            <div class="role">Lycée Robert Schuman</div>
+          </div>
+          <nav aria-label="Sections du portfolio">
+            <ul>
+              <li><a href="#accueil">Accueil</a></li>
+              <li><a href="#a-propos">À propos</a></li>
+              <li><a href="#parcours">Mon parcours</a></li>
+              <li><a href="#projets">Projets</a></li>
+              <li><a href="#veilles">Veilles</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#epreuve-e4">Épreuve E4</a></li>
+            </ul>
+          </nav>
+          <div class="footer">Maj: <span id="maj"></span></div>
+        </div>
+      </aside>
+
+    <div class="container">
+      <main id="accueil" tabindex="-1">
+        <section class="hero" aria-labelledby="titre-accueil">
+          <header>
+            <h2 id="titre-accueil">Accueil</h2>
+          </header>
+          <h1 style="font-size:2.4rem;">Mostapha Karrar Korid</h1>
+          <p class="tagline">Bienvenue sur mon portfolio</p>
+        </section>
+
+        <section id="a-propos" aria-labelledby="titre-apropos">
+          <header>
+            <h2 id="titre-apropos">À propos</h2>
+            <p class="tagline">Présentation</p>
+          </header>
+          <div class="grid">
+            <div>
+              <p>
+                Passionné par l'informatique et attiré par les réseaux,
+                j'ai, dans un premier temps, choisi le BTS SIO SISR en alternance
+                pour allier théorie et pratique. Je vous propose sur ce portfolio de retrouver ci-dessous
+                les différentes études, et projet professionnel que j'ai pu entreprendre au sein de ma carrière.
+                Vous retrouverez ci-dessous mon CV ainsi que mes différents projets.
+              </p>
+              <div style="margin-top: 16px;">
+                <a href="docs/CV-KARRAR%20KORID%20MOSTAPHA%20(1).pdf" target="_blank" rel="noopener" style="display:inline-block;background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:10px;cursor:pointer;">
+                  Voir mon CV
+                </a>
+              </div>
+            </div>
+            <div>
+              <h3>📚 Qu'est-ce que le BTS SIO ?</h3>
+              <p>
+                Le Brevet de Technicien Supérieur aux Services Informatiques aux Organisations (BTS SIO),
+                s'adresse à ceux qui souhaitent se former en deux ans aux métiers d'administrateur réseau ou de développeur.
+                Pour par la suite intégrer directement le marché du travail ou continuer des études dans le domaine de l'informatique.
+              </p>
+            </div>
+            <h3 class="parcours-section-title">Le BTS SIO propose deux spécialités :</h3>
+            <div class="grid cols-2">
+              <article class="parcours-card">
+                <h4>🔧 Option SISR</h4>
+                <p>
+                  L'option Solution d'infrastructure, systèmes et réseaux forme des professionnels des réseaux et équipements informatiques
+                  (installation, maintenance, sécurité). En sortant d'un BTS SIO SISR, vous serez capables de gérer et d'administrer le réseau
+                  d'une société et d'assurer sa sécurité et sa maintenance.
+                </p>
+                <p><strong>Métiers accessibles :</strong></p>
+                <ul>
+                  <li>Administrateur systèmes et réseaux</li>
+                  <li>Informaticien support et déploiement</li>
+                  <li>Pilote d'exploitation</li>
+                  <li>Support systèmes et réseaux</li>
+                  <li>Technicien d'infrastructure</li>
+                  <li>Technicien de production</li>
+                  <li>Technicien micro et réseaux</li>
+                </ul>
+              </article>
+              <article class="parcours-card">
+                <h4>💻 Option SLAM</h4>
+                <p>
+                  L'option Solutions logicielles et applications métiers forme des spécialistes des logiciels (rédaction d'un cahier des charges,
+                  formulation des besoins et spécifications, développement, intégration au sein de la société).
+                </p>
+                <p><strong>Métiers accessibles :</strong></p>
+                <ul>
+                  <li>Développeur d'applications informatiques</li>
+                  <li>Développeur informatique</li>
+                  <li>Analyste d'applications ou d'études</li>
+                  <li>Analyste programmeur</li>
+                  <li>Programmeur analyste</li>
+                  <li>Programmeur d'applications</li>
+                  <li>Responsable des services applicatifs</li>
+                  <li>Technicien d'études informatiques</li>
+                </ul>
+              </article>
+            </div>
+            <article class="parcours-card">
+              <h3>🏆 Mes certifications</h3>
+              <p>
+                Toutes ces connaissances ont été acquises de différentes façons. Elles ont été acquises durant mes études en BTS SIO
+                et d'autres par ma propre initiative en essayant de mettre en place des solutions. J'ai également relevé des défis organisés,
+                ce qui permet d'effectuer des recherches et d'aller encore plus loin.
+              </p>
+              <div class="grid cols-2 certifications" aria-label="Galerie de certifications" style="margin-top: 16px;">
+                <figure>
+                  <img src="images/certif-pix.jpg" alt="Certification PIX" loading="lazy">
+                  <figcaption style="color:var(--muted);font-size:0.9rem;">PIX</figcaption>
+                </figure>
+                <figure>
+                  <img src="images/certif-ccna.jpg" alt="Certification CCNA" loading="lazy">
+                  <figcaption style="color:var(--muted);font-size:0.9rem;">CCNA</figcaption>
+                </figure>
+              </div>
+            </article>
+            <h3 class="parcours-section-title">Compétences</h3>
+            <p style="margin-bottom: 20px; color: var(--muted);">
+              J'ai acquis ces compétences à la fois par mes études et par ma propre initiative. J'ai toujours été fasciné par la technologie
+              et j'ai travaillé dur pour développer mes compétences en programmation et en réseau. Mon parcours m'a permis de travailler sur
+              une variété de projets passionnants.
+            </p>
+            <div class="grid cols-2">
+              <article class="parcours-card">
+                <h4>💾 Systèmes d'exploitation</h4>
+                <ul>
+                  <li>Linux (Debian, Ubuntu)</li>
+                  <li>Windows (Windows Server, Windows 7 à 11)</li>
+                </ul>
+              </article>
+              <article class="parcours-card">
+                <h4>⌨️ Programmation</h4>
+                <ul>
+                  <li>HTML, CSS, XML</li>
+                  <li>Python, C</li>
+                </ul>
+              </article>
+              <article class="parcours-card">
+                <h4>📝 Scripting</h4>
+                <ul>
+                  <li>Bash / Shell</li>
+                  <li>PowerShell</li>
+                </ul>
+              </article>
+              <article class="parcours-card">
+                <h4>🌐 Réseau</h4>
+                <ul>
+                  <li>Services réseau IPv6/IPv4 (DHCP, DNS, pare-feu, etc.)</li>
+                  <li>Routeur et switch Cisco (VLAN, routage)</li>
+                  <li>Routeurs virtuels et firewall (pfSense)</li>
+                  <li>Active Directory</li>
+                  <li>WAN et LAN</li>
+                  <li>IPv6 et IPv4</li>
+                </ul>
+              </article>
+              <article class="parcours-card">
+                <h4>☁️ Virtualisation</h4>
+                <ul>
+                  <li>Hyperviseur type 2 (VirtualBox, VMware Workstation)</li>
+                </ul>
+              </article>
+              <article class="parcours-card">
+                <h4>🗄️ Base de données</h4>
+                <ul>
+                  <li>MySQL, SQL Server</li>
+                </ul>
+              </article>
+              <article class="parcours-card">
+                <h4>⚙️ Services</h4>
+                <ul>
+                  <li>Apache / Nginx, PHP, MySQL</li>
+                  <li>FTP, SFTP, Samba, SSH, etc.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="parcours" aria-labelledby="titre-parcours">
+          <header>
+            <h2 id="titre-parcours">Mon parcours</h2>
+            <p>Formation et expériences professionnelles.</p>
+          </header>
+          <div>
+            <h3 class="parcours-section-title">Expériences professionnelles</h3>
+            <div class="grid cols-2">
+              <article class="parcours-card">
+                <h4>💼 Alternant — Établissement Saint-Germain</h4>
+                <div class="meta">Organisme de gestion de l'établissement catholique Saint Germain · Drancy · sept. 2025 – aujourd'hui · Stage</div>
+                <ul>
+                  <li>Gestion et maintenance du parc informatique (postes, périphériques, réseau).</li>
+                  <li>Support technique aux utilisateurs : diagnostic et résolution des incidents.</li>
+                </ul>
+              </article>
+              <article class="parcours-card">
+                <h4>🔧 Technicien aux services de l'ingénierie</h4>
+                <div class="meta">Université de Malte · Msida, MSD 2080, Malte · nov. 2023 – déc. 2023 · Stage</div>
+                <ul>
+                  <li>Participation aux projets d'ingénierie et à la gestion de projet.</li>
+                </ul>
+              </article>
+              <article class="parcours-card">
+                <h4>📡 Technicien télécommunications</h4>
+                <div class="meta">Cablenet Communication Systems PLC · Nicosia 2408, Chypre · janv. 2023 – févr. 2023 · Stage</div>
+                <ul>
+                  <li>Intervention sur les services et infrastructures de télécommunications.</li>
+                </ul>
+              </article>
+              <article class="parcours-card">
+                <h4>💻 Technicien informatique</h4>
+                <div class="meta">Mairie d'Aulnay-sous-Bois · Aulnay-sous-Bois, Île‑de‑France, France · mai 2022 – juil. 2022 · Stage</div>
+                <ul>
+                  <li>Support informatique et assistance auprès des utilisateurs.</li>
+                </ul>
+              </article>
+            </div>
+            <h3 class="parcours-section-title">Formation</h3>
+            <div class="grid cols-2">
+              <article class="parcours-card">
+                <h4>🎓 Lycée Robert Schuman — BTS SIO option SISR</h4>
+                <div class="meta">Brevet de technicien supérieur (BTS), Informatique · sept. 2024 – juin 2026 · En cours</div>
+                <ul>
+                  <li>Gestion du patrimoine informatique.</li>
+                  <li>Virtualisation : Proxmox, Hyper-V, VirtualBox, Docker…</li>
+                  <li>Gestion de projet.</li>
+                </ul>
+              </article>
+              <article class="parcours-card">
+                <h4>🎓 Lycée Robert Schuman — Baccalauréat professionnel SN</h4>
+                <div class="meta">Informatique · sept. 2021 – juil. 2024 · Mention Très Bien</div>
+                <ul>
+                  <li>Spécialisation en systèmes numériques et informatique.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="projets" aria-labelledby="titre-projets">
+          <header>
+            <h2 id="titre-projets">Projets</h2>
+            <p>Projets réalisés en cours — réalisations académiques.</p>
+          </header>
+          <div class="grid cols-2">
+            <article class="project-card">
+              <h3>🌐 Configuration d'un réseau d'entreprise</h3>
+              <p>
+                Conception et mise en place d'une infrastructure réseau avec routage, VLAN, DHCP et DNS.
+                Configuration de commutateurs et routeurs pour une architecture sécurisée et performante.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Réseaux</span>
+                <span class="project-tag">VLAN</span>
+                <span class="project-tag">Routage</span>
+                <span class="project-tag">DHCP/DNS</span>
+              </div>
+            </article>
+            <article class="project-card">
+              <h3>☁️ Virtualisation d'environnements</h3>
+              <p>
+                Création d'un environnement virtualisé avec VMware/VirtualBox. Déploiement de machines virtuelles,
+                configuration de réseaux virtuels et gestion des ressources.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">VMware</span>
+                <span class="project-tag">VirtualBox</span>
+                <span class="project-tag">Virtualisation</span>
+              </div>
+            </article>
+            <article class="project-card">
+              <h3>🔒 Sécurisation d'une infrastructure</h3>
+              <p>
+                Mise en place de mesures de sécurité : pare-feu, chiffrement, authentification forte,
+                sauvegardes automatisées et monitoring. Audit de sécurité et correction des vulnérabilités.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Sécurité</span>
+                <span class="project-tag">Pare-feu</span>
+                <span class="project-tag">Chiffrement</span>
+                <span class="project-tag">Monitoring</span>
+              </div>
+            </article>
+            <article class="project-card">
+              <h3>🔄 Automatisation avec scripts</h3>
+              <p>
+                Développement de scripts PowerShell et Bash pour automatiser des tâches d'administration :
+                déploiement, sauvegardes, monitoring et maintenance.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">PowerShell</span>
+                <span class="project-tag">Bash</span>
+                <span class="project-tag">Automatisation</span>
+              </div>
+            </article>
+            <article class="project-card">
+              <h3>📊 Monitoring et supervision</h3>
+              <p>
+                Mise en place d'outils de monitoring pour surveiller les performances des serveurs,
+                la disponibilité des services et générer des alertes en cas d'incident.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Monitoring</span>
+                <span class="project-tag">Supervision</span>
+                <span class="project-tag">Alertes</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="veilles" aria-labelledby="titre-veilles">
+          <header>
+            <h2 id="titre-veilles">Veilles</h2>
+            <p>Veille technologique — suivi des évolutions et innovations.</p>
+          </header>
+          <div class="grid">
+            <div>
+              <h3>🔍 Qu'est-ce que la veille technologique ?</h3>
+              <p>
+                La veille technologique consiste à se tenir informé des dernières évolutions, innovations et tendances
+                dans le domaine des technologies de l'information. C'est une pratique essentielle pour rester à jour
+                dans un secteur en constante évolution.
+              </p>
+            </div>
+            <h3 class="parcours-section-title">Méthodes de veille</h3>
+            <div class="grid cols-2">
+              <article class="parcours-card">
+                <h4>📰 Sources d'information</h4>
+                <ul>
+                  <li>Sites spécialisés (Next INpact, ZDNet, Le Monde Informatique)</li>
+                  <li>Blogs techniques et communautés (Reddit, Stack Overflow)</li>
+                  <li>Newsletters et flux RSS</li>
+                  <li>Réseaux sociaux professionnels (LinkedIn, Twitter)</li>
+                </ul>
+              </article>
+              <article class="parcours-card">
+                <h4>🔔 Outils de veille</h4>
+                <ul>
+                  <li>Google Alerts pour les mots-clés</li>
+                  <li>Feedly pour agrégation de flux RSS</li>
+                  <li>Twitter Lists pour suivre les experts</li>
+                  <li>Podcasts techniques</li>
+                </ul>
+              </article>
+              <article class="parcours-card">
+                <h4>📅 Fréquence</h4>
+                <ul>
+                  <li>Consultation quotidienne des actualités</li>
+                  <li>Revue hebdomadaire approfondie</li>
+                  <li>Participation à des webinaires mensuels</li>
+                  <li>Suivi des conférences et événements</li>
+                </ul>
+              </article>
+            </div>
+            <h3 class="parcours-section-title">Thèmes suivis</h3>
+            <div class="grid cols-2">
+              <article class="parcours-card">
+                <h4>🔒 Cybersécurité</h4>
+                <p>
+                  Actualités sur les menaces, vulnérabilités, solutions de sécurité et bonnes pratiques.
+                </p>
+              </article>
+              <article class="parcours-card">
+                <h4>☁️ Cloud Computing</h4>
+                <p>
+                  Évolutions des services cloud (AWS, Azure, GCP), nouvelles fonctionnalités et tendances.
+                </p>
+              </article>
+              <article class="parcours-card">
+                <h4>🌐 Réseaux</h4>
+                <p>
+                  Nouvelles technologies réseau (5G, SD-WAN, IPv6), équipements et protocoles.
+                </p>
+              </article>
+              <article class="parcours-card">
+                <h4>🖥️ Virtualisation</h4>
+                <p>
+                  Conteneurs (Docker, Kubernetes), hyperviseurs et technologies de virtualisation.
+                </p>
+              </article>
+              <article class="parcours-card">
+                <h4>🤖 Automatisation</h4>
+                <p>
+                  DevOps, Infrastructure as Code, orchestration et outils d'automatisation.
+                </p>
+              </article>
+              <article class="parcours-card">
+                <h4>💾 Stockage</h4>
+                <p>
+                  Solutions de stockage, sauvegarde, réplication et technologies émergentes.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" aria-labelledby="titre-contact">
+          <header>
+            <h2 id="titre-contact">Contact</h2>
+            <p>Je suis disponible pour discuter de projets, d'opportunités professionnelles ou pour répondre à vos questions concernant mon parcours et mes compétences.</p>
+          </header>
+          <div class="grid cols-2" style="gap: 32px; margin-top: 24px;">
+            <div>
+              <h3 style="margin-top: 0; margin-bottom: 16px;">Me contacter</h3>
+              <form aria-label="Formulaire de contact" onsubmit="return false;">
+                <label style="display: block; margin-bottom: 16px;">
+                  Nom complet<br>
+                  <input type="text" name="nom" placeholder="Votre nom complet" required style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;margin-top:6px;">
+                </label>
+                <label style="display: block; margin-bottom: 16px;">
+                  Adresse mail<br>
+                  <input type="email" name="email" placeholder="votre@email.com" required style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;margin-top:6px;">
+                </label>
+                <label style="display: block; margin-bottom: 16px;">
+                  Sujet<br>
+                  <input type="text" name="sujet" placeholder="Objet de votre message" required style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;margin-top:6px;">
+                </label>
+                <label style="display: block; margin-bottom: 16px;">
+                  Message<br>
+                  <textarea name="message" rows="6" placeholder="Votre message" required style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;margin-top:6px;resize:vertical;"></textarea>
+                </label>
+                <div style="margin-top: 10px;">
+                  <button type="submit" style="background:var(--accent);color:#fff;border:none;padding:10px 20px;border-radius:10px;cursor:pointer;font-size:1rem;">
+                    Envoyer
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div>
+              <h3 style="margin-top: 0; margin-bottom: 16px;">Informations de contact</h3>
+              <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div>
+                  <strong style="color: var(--accent);">Email</strong>
+                  <p style="margin: 6px 0 0 0;">
+                    <a href="mailto:mostaphakarrarkorid@gmail.com" style="color: var(--text); text-decoration: none;">mostaphakarrarkorid@gmail.com</a>
+                  </p>
+                </div>
+                <div>
+                  <strong style="color: var(--accent);">Numéro de téléphone</strong>
+                  <p style="margin: 6px 0 0 0;">
+                    <a href="tel:+33767177983" style="color: var(--text); text-decoration: none;">07 67 17 79 83</a>
+                  </p>
+                </div>
+                <div>
+                  <strong style="color: var(--accent);">Localisation</strong>
+                  <p style="margin: 6px 0 0 0;">
+                    5 Avenue du Général de Gaulle<br>
+                    93440 Dugny
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="epreuve-e4" aria-labelledby="titre-e4">
+          <header>
+            <h2 id="titre-e4">Épreuve E4</h2>
+            <p>Livrables et éléments de l'épreuve — à renseigner.</p>
+          </header>
+          <div class="grid">
+            <p>Ajoutez ici les documents, tableaux de compétences, et références nécessaires.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      // Mise à jour de la date
+      (function () {
+        const el = document.getElementById('maj');
+        if (el) {
+          try {
+            const d = new Date();
+            const fmt = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'medium' }).format(d);
+            el.textContent = fmt;
+          } catch (_) { /* no-op */ }
+        }
+      })();
+
+      // Navigation par scroll snap (molette, pad tactile, clics)
+      (function () {
+        const navLinks = Array.from(document.querySelectorAll('nav a'));
+        const allSections = Array.from(document.querySelectorAll('section'));
+        const main = document.querySelector('main');
+        let isScrolling = false;
+        
+        // Fonction pour scroller vers une section
+        function scrollToSection(sectionId) {
+          const section = document.getElementById(sectionId);
+          if (section && main) {
+            isScrolling = true;
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Mettre à jour l'URL
+            if (history.pushState) {
+              history.pushState(null, null, '#' + sectionId);
+            }
+            
+            // Réinitialiser le flag après l'animation
+            setTimeout(() => {
+              isScrolling = false;
+            }, 1000);
+          }
+        }
+        
+        // Fonction pour détecter quelle section est visible
+        function updateActiveSection() {
+          if (isScrolling) return;
+          
+          const scrollPosition = main.scrollTop + (main.clientHeight / 2);
+          let activeSection = null;
+          let minDistance = Infinity;
+          
+          allSections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            const sectionCenter = sectionTop + (section.offsetHeight / 2);
+            const distance = Math.abs(scrollPosition - sectionCenter);
+            
+            if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+              if (distance < minDistance) {
+                minDistance = distance;
+                activeSection = section;
+              }
+            }
+          });
+          
+          if (activeSection) {
+            const activeId = activeSection.id;
+            
+            // Mettre à jour les liens actifs
+            navLinks.forEach(a => {
+              const href = a.getAttribute('href') || '';
+              a.classList.toggle('active', href === '#' + activeId);
+            });
+            
+            // Mettre à jour l'URL sans déclencher le scroll
+            if (history.replaceState && window.location.hash !== '#' + activeId) {
+              history.replaceState(null, null, '#' + activeId);
+            }
+          }
+        }
+        
+        // Gérer les clics sur les liens de navigation
+        navLinks.forEach(a => {
+          a.addEventListener('click', (e) => {
+            e.preventDefault();
+            const href = a.getAttribute('href') || '';
+            if (href.startsWith('#')) {
+              const sectionId = href.substring(1);
+              scrollToSection(sectionId);
+            }
+          });
+        });
+        
+        // Détecter le scroll (molette, pad tactile)
+        main.addEventListener('scroll', () => {
+          updateActiveSection();
+        });
+        
+        // Gérer le hash de l'URL au chargement
+        function handleHash() {
+          const hash = window.location.hash.substring(1);
+          if (hash) {
+            const section = document.getElementById(hash);
+            if (section) {
+              setTimeout(() => scrollToSection(hash), 100);
+              return;
+            }
+          }
+        }
+        
+        // Au chargement de la page
+        setTimeout(() => {
+          handleHash();
+          updateActiveSection();
+        }, 100);
+        
+        // Écouter les changements de hash (retour en arrière)
+        window.addEventListener('hashchange', () => {
+          const hash = window.location.hash.substring(1);
+          if (hash) {
+            scrollToSection(hash);
+          }
+        });
+        
+        // Support du swipe sur mobile/tablette
+        let touchStartY = 0;
+        let touchEndY = 0;
+        
+        main.addEventListener('touchstart', (e) => {
+          touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+        
+        main.addEventListener('touchend', (e) => {
+          touchEndY = e.changedTouches[0].screenY;
+          handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+          const swipeThreshold = 50;
+          const diff = touchStartY - touchEndY;
+          
+          if (Math.abs(diff) > swipeThreshold) {
+            const currentSection = getCurrentSection();
+            if (currentSection) {
+              const currentIndex = allSections.indexOf(currentSection);
+              if (diff > 0 && currentIndex < allSections.length - 1) {
+                // Swipe vers le haut - section suivante
+                scrollToSection(allSections[currentIndex + 1].id);
+              } else if (diff < 0 && currentIndex > 0) {
+                // Swipe vers le bas - section précédente
+                scrollToSection(allSections[currentIndex - 1].id);
+              }
+            }
+          }
+        }
+        
+        function getCurrentSection() {
+          const scrollPosition = main.scrollTop + (main.clientHeight / 2);
+          for (let section of allSections) {
+            if (scrollPosition >= section.offsetTop && scrollPosition <= section.offsetTop + section.offsetHeight) {
+              return section;
+            }
+          }
+          return allSections[0];
+        }
+      })();
+    </script>
+  </body>
+  </html>
+
+
