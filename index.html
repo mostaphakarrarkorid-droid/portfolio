@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Portfolio — Mostapha Karrar Korid | BTS SIO SISR</title>
-    <meta name="description" content="Portfolio de Mostapha Karrar Korid — BTS SIO option SISR au lycée Robert Schuman : parcours, projets, veilles, contact et épreuve E4.">
+    <meta name="description" content="Portfolio de Mostapha Karrar Korid — BTS SIO option SISR au lycée Robert Schuman : parcours, projets, veilles, contact et épreuve E5.">
 
     <style>
       :root {
@@ -521,6 +521,76 @@
         text-shadow: 0 0 8px rgba(255, 0, 51, 0.8);
       }
 
+      /* Boutons CV + Excel sous la section À propos */
+      .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .hero-btn {
+        display: inline-block;
+        background: var(--accent);
+        color: #fff;
+        border: 2px solid var(--accent);
+        padding: 10px 14px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        box-shadow: 
+          0 0 15px rgba(255, 0, 51, 0.6),
+          inset 0 0 10px rgba(255, 255, 255, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .hero-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 
+          0 0 25px rgba(255, 0, 51, 0.9),
+          0 0 40px rgba(255, 0, 51, 0.4);
+      }
+
+      .excel-btn {
+        background: linear-gradient(135deg, #16a34a, #22c55e);
+        border-color: #22c55e;
+        color: #fff;
+        box-shadow: 
+          0 0 15px rgba(34, 197, 94, 0.5),
+          0 0 25px rgba(34, 197, 94, 0.2);
+      }
+
+      .excel-btn:hover {
+        background: linear-gradient(135deg, #15803d, #16a34a);
+        box-shadow: 
+          0 0 25px rgba(34, 197, 94, 0.8),
+          0 0 35px rgba(34, 197, 94, 0.35);
+      }
+
+      .document-card {
+        background: var(--surface-dark);
+        border: 1px solid var(--accent);
+        border-radius: var(--radius);
+        padding: 24px;
+        box-shadow: 
+          0 0 20px rgba(255, 0, 51, 0.25),
+          inset 0 0 20px rgba(255, 0, 51, 0.05);
+        max-width: 800px;
+      }
+
+      .document-card h3 {
+        margin-top: 0;
+        margin-bottom: 12px;
+        color: var(--accent);
+        text-shadow: 0 0 8px rgba(255, 0, 51, 0.6);
+      }
+
+      .document-card p {
+        margin-bottom: 18px;
+        color: var(--text);
+      }
+
       /* Responsive: la barre passe en haut sur petits écrans */
       @media (max-width: 960px) {
         .sidebar {
@@ -554,7 +624,7 @@
               <li><a href="#projets">Projets</a></li>
               <li><a href="#veilles">Veilles</a></li>
               <li><a href="#contact">Contact</a></li>
-              <li><a href="#epreuve-e4">Épreuve E4</a></li>
+              <li><a href="#epreuve-e5">Épreuve E5</a></li>
             </ul>
           </nav>
           <div class="footer">Maj: <span id="maj"></span></div>
@@ -585,12 +655,18 @@
                 les différentes études, et projet professionnel que j'ai pu entreprendre au sein de ma carrière.
                 Vous retrouverez ci-dessous mon CV ainsi que mes différents projets.
               </p>
-              <div style="margin-top: 16px;">
-                <a href="docs/CV-KARRAR%20KORID%20MOSTAPHA%20(1).pdf" target="_blank" rel="noopener" style="display:inline-block;background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:10px;cursor:pointer;">
-                  Voir mon CV
+
+              <div class="hero-buttons" style="margin-top: 16px;">
+                <a href="docs/CV-KARRAR%20KORID%20MOSTAPHA%20(1).pdf" target="_blank" rel="noopener" class="hero-btn">
+                  📄 Voir mon CV
+                </a>
+
+                <a href="docs/tableau-synthese-e5-bts-sio-2026.xlsx" target="_blank" rel="noopener" class="hero-btn excel-btn">
+                  📊 Télécharger le tableau de synthèse E5
                 </a>
               </div>
             </div>
+
             <div>
               <h3>📚 Qu'est-ce que le BTS SIO ?</h3>
               <p>
@@ -750,7 +826,7 @@
               </article>
               <article class="parcours-card">
                 <h4>💻 Technicien informatique</h4>
-                <div class="meta">Mairie d'Aulnay-sous-Bois · Aulnay-sous-Bois, Île‑de‑France, France · mai 2022 – juil. 2022 · Stage</div>
+                <div class="meta">Mairie d'Aulnay-sous-Bois · Aulnay-sous-Bois, Île-de-France, France · mai 2022 – juil. 2022 · Stage</div>
                 <ul>
                   <li>Support informatique et assistance auprès des utilisateurs.</li>
                 </ul>
@@ -994,13 +1070,22 @@
           </div>
         </section>
 
-        <section id="epreuve-e4" aria-labelledby="titre-e4">
+        <section id="epreuve-e5" aria-labelledby="titre-e5">
           <header>
-            <h2 id="titre-e4">Épreuve E4</h2>
-            <p>Livrables et éléments de l'épreuve — à renseigner.</p>
+            <h2 id="titre-e5">Épreuve E5</h2>
+            <p>Retrouvez ici les documents et livrables liés à l’épreuve E5.</p>
           </header>
           <div class="grid">
-            <p>Ajoutez ici les documents, tableaux de compétences, et références nécessaires.</p>
+            <article class="document-card">
+              <h3>📁 Tableau de synthèse E5 — BTS SIO 2026</h3>
+              <p>
+                Accédez directement au tableau de synthèse officiel de l’épreuve E5.
+                Ce document regroupe les compétences, activités et éléments attendus dans le cadre du BTS SIO 2026.
+              </p>
+              <a href="docs/tableau-synthese-e5-bts-sio-2026.xlsx" target="_blank" rel="noopener" class="hero-btn excel-btn">
+                📊 Ouvrir le tableau de synthèse E5
+              </a>
+            </article>
           </div>
         </section>
       </main>
@@ -1170,6 +1255,6 @@
       })();
     </script>
   </body>
-  </html>
+</html>
 
 
